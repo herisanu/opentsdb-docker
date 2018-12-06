@@ -62,6 +62,7 @@ ADD files/start_opentsdb.sh /opt/bin/
 ADD files/create_tsdb_tables.sh /opt/bin/
 ADD files/start_hbase.sh /opt/bin/
 ADD files/entrypoint.sh /entrypoint.sh
+ADD files/mygnuplot.sh /usr/local/share/opentsdb/bin/
 
 # Fix ENV variables in installed scripts
 RUN for i in /opt/bin/start_hbase.sh /opt/bin/start_opentsdb.sh /opt/bin/create_tsdb_tables.sh; \
