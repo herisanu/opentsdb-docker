@@ -20,6 +20,8 @@ RUN apk --update add apk-tools \
       --repository http://dl-cdn.alpinelinux.org/alpine/v3.0/testing/ \
     && mkdir -p /opt/opentsdb
 
+RUN apk add python2 py2-requests
+
 WORKDIR /opt/opentsdb/
 
 # Add build deps, build opentsdb, and clean up afterwards.
@@ -60,6 +62,7 @@ ADD files/opentsdb.conf /etc/opentsdb/opentsdb.conf.sample
 ADD files/hbase-site.xml /opt/hbase/conf/hbase-site.xml.sample
 ADD files/start_opentsdb.sh /opt/bin/
 ADD files/create_tsdb_tables.sh /opt/bin/
+ADD files/create_tree.py /opt/bin/
 ADD files/start_hbase.sh /opt/bin/
 ADD files/entrypoint.sh /entrypoint.sh
 ADD files/mygnuplot.sh /usr/local/share/opentsdb/bin/

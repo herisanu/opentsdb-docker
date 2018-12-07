@@ -32,6 +32,10 @@ touch /data/hbase/hbase_started
 echo "Starting opentsdb.  It should be available on port 4242 momentarily."
 /opt/bin/start_opentsdb.sh &
 
+sleep 10
+echo "Checking if tree is defined."
+python /opt/bin/create_tree.py
+
 while [ 1 ]
 do
     sleep 1
